@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- The default letter tile text size -->
+    <dimen name="tile_letter_font_size">17sp</dimen>
+    <!-- The default tile size -->
+    <dimen name="letter_tile_size">32dp</dimen>
+    <!-- The default input text size -->
+    <dimen name="input_text_size">18sp</dimen>
+    <!-- The default chip text size -->
+    <dimen name="chip_text_size">14sp</dimen>
+</resources>

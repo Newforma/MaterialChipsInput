@@ -9,8 +9,10 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.support.annotation.ColorInt;
+import android.support.annotation.DimenRes;
 import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
+import android.util.TypedValue;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
@@ -47,6 +49,7 @@ public class ChipView extends RelativeLayout {
     private ColorStateList mDeleteIconColor;
     private ColorStateList mBackgroundColor;
     private Drawable mBackgroundDrawable;
+    private int mTextSize;
     // letter tile provider
     private LetterTileProvider mLetterTileProvider;
     // chip
@@ -102,6 +105,8 @@ public class ChipView extends RelativeLayout {
                 mBackgroundColor = a.getColorStateList(R.styleable.ChipView_backgroundColor);
                 // background drawable
                 mBackgroundDrawable = a.getDrawable(R.styleable.ChipView_backgroundDrawable);
+                // text size
+                mTextSize = a.getDimensionPixelSize(R.styleable.ChipView_textSize, getResources().getDimensionPixelSize(R.dimen.chip_text_size));
             }
             finally {
                 a.recycle();
@@ -134,6 +139,10 @@ public class ChipView extends RelativeLayout {
         // background drawable
         if (mBackgroundDrawable != null)
             setChipBackgroundDrawable(mBackgroundDrawable);
+
+        // text size
+        if (mTextSize != 0)
+            setChipTextSize(mTextSize);
     }
 
     public void inflate(ChipInterface chip) {
@@ -344,6 +353,16 @@ public class ChipView extends RelativeLayout {
             mContentLayout.setBackground(mBackgroundDrawable);
     }
 
+
+    /**
+     * Set chip text size
+     *
+     * @param chipTextSize the chip text ize in pixels
+     */
+    public void setChipTextSize(@DimenRes int chipTextSize) {
+        mLabelTextView.setTextSize(TypedValue.COMPLEX_UNIT_PX, chipTextSize);
+    }
+
     /**
      * Set the chip object
      *
@@ -386,6 +405,7 @@ public class ChipView extends RelativeLayout {
         private ColorStateList deleteIconColor;
         private ColorStateList backgroundColor;
         private Drawable backgroundDrawable;
+        private int textSize;
         private ChipInterface chip;
 
         public Builder(Context context) {
@@ -437,6 +457,11 @@ public class ChipView extends RelativeLayout {
             return this;
         }
 
+        public Builder textSize(int textSize) {
+            this.textSize = textSize;
+            return this;
+        }
+
         public Builder backgroundDrawable(Drawable backgroundDrawable) {
             this.backgroundDrawable = backgroundDrawable;
             return this;
@@ -467,6 +492,7 @@ public class ChipView extends RelativeLayout {
         chipView.mDeleteIconColor = builder.deleteIconColor;
         chipView.mBackgroundColor = builder.backgroundColor;
         chipView.mBackgroundDrawable = builder.backgroundDrawable;
+        chipView.mTextSize = builder.textSize;
         chipView.mChip = builder.chip;
         chipView.inflateWithAttributes();
 
