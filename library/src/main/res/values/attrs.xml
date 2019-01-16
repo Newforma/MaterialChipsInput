@@ -10,6 +10,7 @@
         <attr name="deleteIcon" format="reference" />
         <attr name="deleteIconColor" format="color" />
         <attr name="backgroundColor" format="color" />
+        <attr name="backgroundDrawable" format="reference" />
     </declare-styleable>
 
     <declare-styleable name="ChipsInput">

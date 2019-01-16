@@ -7,17 +7,16 @@ import android.content.res.TypedArray;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.Build;
 import android.support.annotation.ColorInt;
 import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.pchmn.materialchips.model.Chip;
 import com.pchmn.materialchips.model.ChipInterface;
 import com.pchmn.materialchips.util.LetterTileProvider;
 import com.pchmn.materialchips.util.ViewUtil;
@@ -47,6 +46,7 @@ public class ChipView extends RelativeLayout {
     private Drawable mDeleteIcon;
     private ColorStateList mDeleteIconColor;
     private ColorStateList mBackgroundColor;
+    private Drawable mBackgroundDrawable;
     // letter tile provider
     private LetterTileProvider mLetterTileProvider;
     // chip
@@ -100,6 +100,8 @@ public class ChipView extends RelativeLayout {
                 if(deleteIconId != NONE) mDeleteIcon = ContextCompat.getDrawable(mContext, deleteIconId);
                 // background color
                 mBackgroundColor = a.getColorStateList(R.styleable.ChipView_backgroundColor);
+                // background drawable
+                mBackgroundDrawable = a.getDrawable(R.styleable.ChipView_backgroundDrawable);
             }
             finally {
                 a.recycle();
@@ -128,6 +130,10 @@ public class ChipView extends RelativeLayout {
         // background color
         if(mBackgroundColor != null)
             setChipBackgroundColor(mBackgroundColor);
+
+        // background drawable
+        if (mBackgroundDrawable != null)
+            setChipBackgroundDrawable(mBackgroundDrawable);
     }
 
     public void inflate(ChipInterface chip) {
@@ -327,6 +333,18 @@ public class ChipView extends RelativeLayout {
     }
 
     /**
+     * Set background drawable
+     *
+     * @param mBackgroundDrawable the drawable to set
+     */
+    public void setChipBackgroundDrawable(Drawable mBackgroundDrawable) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN)
+            mContentLayout.setBackgroundDrawable(mBackgroundDrawable);
+        else
+            mContentLayout.setBackground(mBackgroundDrawable);
+    }
+
+    /**
      * Set the chip object
      *
      * @param chip the chip
@@ -367,6 +385,7 @@ public class ChipView extends RelativeLayout {
         private Drawable deleteIcon;
         private ColorStateList deleteIconColor;
         private ColorStateList backgroundColor;
+        private Drawable backgroundDrawable;
         private ChipInterface chip;
 
         public Builder(Context context) {
@@ -418,6 +437,11 @@ public class ChipView extends RelativeLayout {
             return this;
         }
 
+        public Builder backgroundDrawable(Drawable backgroundDrawable) {
+            this.backgroundDrawable = backgroundDrawable;
+            return this;
+        }
+
         public Builder chip(ChipInterface chip) {
             this.chip = chip;
             this.label = chip.getLabel();
@@ -442,6 +466,7 @@ public class ChipView extends RelativeLayout {
         chipView.mDeleteIcon = builder.deleteIcon;
         chipView.mDeleteIconColor = builder.deleteIconColor;
         chipView.mBackgroundColor = builder.backgroundColor;
+        chipView.mBackgroundDrawable = builder.backgroundDrawable;
         chipView.mChip = builder.chip;
         chipView.inflateWithAttributes();
 
