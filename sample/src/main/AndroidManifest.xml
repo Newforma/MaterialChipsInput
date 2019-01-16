@@ -19,7 +19,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".ContactListActivity" />
-        <activity android:name=".ChipExamplesActivity"></activity>
+        <activity android:name=".ChipExamplesActivity" />
+        <activity android:name=".ChipInputActivity" />
     </application>
 
 </manifest>

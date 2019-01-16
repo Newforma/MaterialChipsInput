@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EEEEEE">
+
+    <com.pchmn.materialchips.ChipsInput
+        android:id="@+id/chips_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        app:hint="Enter text"
+        app:maxRows="3"
+        app:textSize="16sp"
+        app:chip_textSize="16sp"
+        app:showChipDetailed="false"
+        app:chip_hasAvatarIcon="false"
+        tools:layout_height="44dp"/>
+
+</FrameLayout>

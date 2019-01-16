@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = MainActivity.class.toString();
     @BindView(R.id.contacts_button) Button mContactListButton;
     @BindView(R.id.custom_chips_button) Button mCustomChipsButton;
+    @BindView(R.id.input_chips_button) Button mInputChipsButton;
     private int mStackLevel = 0;
 
     @Override
@@ -31,6 +32,10 @@ public class MainActivity extends AppCompatActivity {
 
         mCustomChipsButton.setOnClickListener(view -> {
             startActivity(new Intent(MainActivity.this, ChipExamplesActivity.class));
+        });
+
+        mInputChipsButton.setOnClickListener(view -> {
+            startActivity(new Intent(MainActivity.this, ChipInputActivity.class));
         });
     }
 

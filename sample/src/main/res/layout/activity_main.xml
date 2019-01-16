@@ -23,6 +23,12 @@
         android:text="Custom chips examples"/>
 
     <Button
+        android:id="@+id/input_chips_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Input chips examples"/>
+
+    <Button
         android:visibility="gone"
         android:id="@+id/dialog_fragment"
         android:layout_width="wrap_content"
