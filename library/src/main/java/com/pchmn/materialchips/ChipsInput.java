@@ -121,7 +121,7 @@ public class ChipsInput extends ScrollViewMaxHeight {
                 // chip background color
                 mChipBackgroundColor = a.getColorStateList(R.styleable.ChipsInput_chip_backgroundColor);
                 // chip background drawable
-                mChipBackgroundDrawable = a.getDrawable(R.styleable.ChipView_backgroundDrawable);
+                mChipBackgroundDrawable = a.getDrawable(R.styleable.ChipsInput_chip_backgroundDrawable);
                 // chip text size
                 mChipTextSize =  a.getDimensionPixelSize(R.styleable.ChipsInput_chip_textSize, getResources().getDimensionPixelSize(R.dimen.chip_text_size));
                 // show chip detailed

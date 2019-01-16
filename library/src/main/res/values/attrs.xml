@@ -25,6 +25,7 @@
         <attr name="chip_deleteIcon" format="reference" />
         <attr name="chip_deleteIconColor" format="color" />
         <attr name="chip_backgroundColor" format="color" />
+        <attr name="chip_backgroundDrawable" format="reference" />
         <attr name="chip_textSize" format="dimension" />
         <attr name="showChipDetailed" format="boolean" />
         <attr name="chip_detailed_textColor" format="color" />
