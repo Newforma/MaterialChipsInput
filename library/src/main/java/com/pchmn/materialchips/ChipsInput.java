@@ -217,7 +217,7 @@ public class ChipsInput extends ScrollViewMaxHeight {
         return chipView;
     }
 
-    public ChipsInputEditText getEditText() {
+    public ChipsInputEditText createNewEditText() {
         ChipsInputEditText editText = new ChipsInputEditText(mContext);
         if(mHintColor != null)
             editText.setHintTextColor(mHintColor);
@@ -227,6 +227,10 @@ public class ChipsInput extends ScrollViewMaxHeight {
             editText.setTextSize(TypedValue.COMPLEX_UNIT_PX, mTextSize);
 
         return editText;
+    }
+
+    public ChipsInputEditText getEditText() {
+        return mChipsAdapter.getEditText();
     }
 
     public DetailedChipView getDetailedChipView(ChipInterface chip) {
@@ -357,6 +361,10 @@ public class ChipsInput extends ScrollViewMaxHeight {
 
     public ChipValidator getChipValidator() {
         return mChipValidator;
+    }
+
+    public void setInputKeyInterceptor(ChipsInputEditText.InputKeyInterceptor inputKeyInterceptor) {
+        mChipsAdapter.setInputKeyInterceptor(inputKeyInterceptor);
     }
 
     public void setChipValidator(ChipValidator mChipValidator) {
