@@ -44,8 +44,12 @@ public class ChipsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         mChipsInput = chipsInput;
         mRecycler = recycler;
         mHintLabel = mChipsInput.getHint();
-        mEditText = mChipsInput.getEditText();
+        mEditText = mChipsInput.createNewEditText();
         initEditText();
+    }
+
+    public ChipsInputEditText getEditText() {
+        return mEditText;
     }
 
     private class ItemViewHolder extends RecyclerView.ViewHolder {
