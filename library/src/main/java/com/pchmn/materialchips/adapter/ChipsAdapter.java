@@ -127,6 +127,8 @@ public class ChipsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         // prevent fullscreen on landscape
         mEditText.setImeOptions(EditorInfo.IME_FLAG_NO_EXTRACT_UI);
         mEditText.setPrivateImeOptions("nm");
+        // no suggestion
+        mEditText.setInputType(InputType.TYPE_TEXT_VARIATION_FILTER | InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS);
 
         // handle back space
         mEditText.setOnKeyListener(new View.OnKeyListener() {
@@ -363,6 +365,10 @@ public class ChipsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
 
     public List<ChipInterface> getChipList() {
         return mChipList;
+    }
+
+    public void setInputKeyInterceptor(ChipsInputEditText.InputKeyInterceptor inputKeyInterceptor) {
+        mEditText.setInputKeyInterceptor(inputKeyInterceptor);
     }
 
     private boolean listContains(List<ChipInterface> contactList, ChipInterface chip) {

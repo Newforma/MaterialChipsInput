@@ -367,6 +367,10 @@ public class ChipsInput extends ScrollViewMaxHeight {
         return mChipValidator;
     }
 
+    public void setInputKeyInterceptor(ChipsInputEditText.InputKeyInterceptor inputKeyInterceptor) {
+        mChipsAdapter.setInputKeyInterceptor(inputKeyInterceptor);
+    }
+
     public void setChipValidator(ChipValidator mChipValidator) {
         this.mChipValidator = mChipValidator;
     }

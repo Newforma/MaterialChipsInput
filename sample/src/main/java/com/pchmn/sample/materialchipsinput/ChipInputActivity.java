@@ -38,7 +38,7 @@ public class ChipInputActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence text) {
-                List<Character> chipTerminators = Arrays.asList('\n', ' ', ',', ';');
+                List<Character> chipTerminators = Arrays.asList(' ', ',', ';');
                 if(text.length() > 0) {
                     int terminatingIndex = text.length() - 1;
                     char lastCharacter = text.charAt(terminatingIndex);
@@ -47,6 +47,11 @@ public class ChipInputActivity extends AppCompatActivity {
                         mChipsInput.addChip(textToChipify, textToChipify);
                     }
                 }
+            }
+        });
+        mChipsInput.setInputKeyInterceptor(text -> {
+            if(!text.isEmpty()) {
+                mChipsInput.addChip(text, text);
             }
         });
     }
