@@ -48,7 +48,6 @@ public class ChipView extends RelativeLayout {
     private Drawable mDeleteIcon;
     private ColorStateList mDeleteIconColor;
     private ColorStateList mBackgroundColor;
-    private Drawable mBackgroundDrawable;
     private int mTextSize;
     // letter tile provider
     private LetterTileProvider mLetterTileProvider;
@@ -103,8 +102,6 @@ public class ChipView extends RelativeLayout {
                 if(deleteIconId != NONE) mDeleteIcon = ContextCompat.getDrawable(mContext, deleteIconId);
                 // background color
                 mBackgroundColor = a.getColorStateList(R.styleable.ChipView_backgroundColor);
-                // background drawable
-                mBackgroundDrawable = a.getDrawable(R.styleable.ChipView_backgroundDrawable);
                 // text size
                 mTextSize = a.getDimensionPixelSize(R.styleable.ChipView_textSize, getResources().getDimensionPixelSize(R.dimen.chip_text_size));
             }
@@ -135,10 +132,6 @@ public class ChipView extends RelativeLayout {
         // background color
         if(mBackgroundColor != null)
             setChipBackgroundColor(mBackgroundColor);
-
-        // background drawable
-        if (mBackgroundDrawable != null)
-            setChipBackgroundDrawable(mBackgroundDrawable);
 
         // text size
         if (mTextSize != 0)
@@ -404,7 +397,6 @@ public class ChipView extends RelativeLayout {
         private Drawable deleteIcon;
         private ColorStateList deleteIconColor;
         private ColorStateList backgroundColor;
-        private Drawable backgroundDrawable;
         private int textSize;
         private ChipInterface chip;
 
@@ -462,11 +454,6 @@ public class ChipView extends RelativeLayout {
             return this;
         }
 
-        public Builder backgroundDrawable(Drawable backgroundDrawable) {
-            this.backgroundDrawable = backgroundDrawable;
-            return this;
-        }
-
         public Builder chip(ChipInterface chip) {
             this.chip = chip;
             this.label = chip.getLabel();
@@ -491,7 +478,6 @@ public class ChipView extends RelativeLayout {
         chipView.mDeleteIcon = builder.deleteIcon;
         chipView.mDeleteIconColor = builder.deleteIconColor;
         chipView.mBackgroundColor = builder.backgroundColor;
-        chipView.mBackgroundDrawable = builder.backgroundDrawable;
         chipView.mTextSize = builder.textSize;
         chipView.mChip = builder.chip;
         chipView.inflateWithAttributes();

@@ -16,6 +16,7 @@
         app:hint="Enter text"
         app:maxRows="3"
         app:textSize="16sp"
+        app:chip_labelColor="@color/chip_text_color"
         app:chip_textSize="16sp"
         app:showChipDetailed="false"
         app:chip_hasAvatarIcon="false"
