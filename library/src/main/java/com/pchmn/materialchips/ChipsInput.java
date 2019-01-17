@@ -274,6 +274,14 @@ public class ChipsInput extends ScrollViewMaxHeight {
         }
     }
 
+    public void afterTextChanged(CharSequence text) {
+        if(mChipsListener != null) {
+            for (ChipsListener chipsListener : mChipsListenerList) {
+                chipsListener.afterTextChanged(text);
+            }
+        }
+    }
+
     public List<? extends ChipInterface> getSelectedChipList() {
         return mChipsAdapter.getChipList();
     }
@@ -375,6 +383,7 @@ public class ChipsInput extends ScrollViewMaxHeight {
         void onChipAdded(ChipInterface chip, int newSize);
         void onChipRemoved(ChipInterface chip, int newSize);
         void onTextChanged(CharSequence text);
+        void afterTextChanged(CharSequence text);
     }
 
     public interface ChipValidator {

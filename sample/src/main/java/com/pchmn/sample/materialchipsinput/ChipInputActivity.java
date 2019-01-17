@@ -48,6 +48,11 @@ public class ChipInputActivity extends AppCompatActivity {
                     }
                 }
             }
+
+            @Override
+            public void afterTextChanged(CharSequence text) {
+
+            }
         });
         mChipsInput.setInputKeyInterceptor(text -> {
             if(!text.isEmpty()) {

@@ -66,6 +66,11 @@ public class ContactListActivity extends AppCompatActivity {
             public void onTextChanged(CharSequence text) {
                 Log.e(TAG, "text changed: " + text.toString());
             }
+
+            @Override
+            public void afterTextChanged(CharSequence text) {
+                Log.e(TAG, "after text changed: " + text.toString());
+            }
         });
 
         // show selected chips

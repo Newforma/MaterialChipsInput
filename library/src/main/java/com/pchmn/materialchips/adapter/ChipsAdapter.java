@@ -163,7 +163,7 @@ public class ChipsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
 
             @Override
             public void afterTextChanged(Editable s) {
-
+                mChipsInput.afterTextChanged(s);
             }
         });
     }
