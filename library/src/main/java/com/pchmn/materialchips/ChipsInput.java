@@ -200,6 +200,10 @@ public class ChipsInput extends ScrollViewMaxHeight {
         mChipsAdapter.removeChipByInfo(info);
     }
 
+    public void setClearTextAfterChipAdd(boolean clearTextAfterChipAdd) {
+        mChipsAdapter.setClearTextAfterChipAdd(clearTextAfterChipAdd);
+    }
+
     public ChipView getChipView() {
         int padding = ViewUtil.dpToPx(4);
         ChipView chipView = new ChipView.Builder(mContext)

@@ -38,6 +38,7 @@ public class ChipsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
     private String mHintLabel;
     private ChipsInputEditText mEditText;
     private RecyclerView mRecycler;
+    private boolean mClearTextAfterChipAdd = false;
 
     public ChipsAdapter(Context context, ChipsInput chipsInput, RecyclerView recycler) {
         mContext = context;
@@ -277,6 +278,10 @@ public class ChipsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
             mEditText.setFilterableListView(filterableListView);
     }
 
+    public void setClearTextAfterChipAdd(boolean clearTextAfterChipAdd) {
+        mClearTextAfterChipAdd = clearTextAfterChipAdd;
+    }
+
     public void addChip(ChipInterface chip) {
         if(!listContains(mChipList, chip)) {
             mChipList.add(chip);
@@ -284,8 +289,10 @@ public class ChipsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
             mChipsInput.onChipAdded(chip, mChipList.size());
             // hide hint
             mEditText.setHint(null);
-            // reset text
-            mEditText.setText(null);
+            if(mClearTextAfterChipAdd) {
+                // reset text
+                mEditText.setText(null);
+            }
             // refresh data
             notifyItemInserted(mChipList.size());
         }
