@@ -38,7 +38,7 @@ public class ChipsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
     private String mHintLabel;
     private ChipsInputEditText mEditText;
     private RecyclerView mRecycler;
-    private boolean mClearTextAfterChipAdd = false;
+    private boolean mClearTextAfterChipAdd = true;
 
     public ChipsAdapter(Context context, ChipsInput chipsInput, RecyclerView recycler) {
         mContext = context;
