@@ -14,12 +14,14 @@
         android:paddingStart="15dp"
         android:paddingEnd="15dp"
         app:hint="Enter text"
-        app:maxRows="3"
+        app:maxRows="2"
         app:textSize="16sp"
         app:chip_labelColor="@color/chip_text_color"
         app:chip_textSize="16sp"
-        app:showChipDetailed="false"
         app:chip_hasAvatarIcon="false"
+        app:chip_detailed_textColor="@color/colorChipViewBackground"
+        app:chip_detailed_backgroundColor="@color/glass"
+        app:chip_detailed_deleteIconColor="@color/colorChipViewBackground"
         tools:layout_height="44dp"/>
 
 </FrameLayout>
