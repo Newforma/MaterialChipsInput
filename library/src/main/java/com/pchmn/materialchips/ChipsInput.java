@@ -147,6 +147,10 @@ public class ChipsInput extends ScrollViewMaxHeight {
 
         // set window callback
         // will hide DetailedOpenView and hide keyboard on touch outside
+        setWindowCallback();
+    }
+
+    public void setWindowCallback() {
         Activity activity = ActivityUtil.scanForActivity(mContext);
         if(activity == null)
             throw new ClassCastException("android.view.Context cannot be cast to android.app.Activity");
