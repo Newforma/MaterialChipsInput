@@ -13,11 +13,11 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.SearchEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.EditText;
 
 import com.pchmn.materialchips.views.ChipsInputEditText;
 import com.pchmn.materialchips.views.DetailedChipView;
@@ -47,10 +47,12 @@ public class MyWindowCallback implements Window.Callback {
         if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
             View v = mActivity.getCurrentFocus();
             if(v instanceof DetailedChipView) {
+                ViewGroup rootView = (ViewGroup) v.getRootView();
                 Rect outRect = new Rect();
                 v.getGlobalVisibleRect(outRect);
                 if (!outRect.contains((int) motionEvent.getRawX(), (int) motionEvent.getRawY())) {
                     ((DetailedChipView) v).fadeOut();
+                    rootView.removeView(v);
                 }
             }
             if (v instanceof ChipsInputEditText) {

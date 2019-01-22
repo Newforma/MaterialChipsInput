@@ -230,6 +230,7 @@ public class ChipsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
                         public void onClick(View v) {
                             removeChip(position);
                             detailedChipView.fadeOut();
+                            removeDetailedChipView(detailedChipView);
                         }
                     });
                 }
@@ -244,8 +245,8 @@ public class ChipsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
 
         // chip size
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(
-                ViewUtil.dpToPx(300),
-                ViewUtil.dpToPx(100));
+                ViewUtil.dpToPx(276),
+                ViewUtil.dpToPx(76));
 
         layoutParams.addRule(RelativeLayout.ALIGN_PARENT_TOP);
         layoutParams.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
@@ -257,8 +258,8 @@ public class ChipsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
             detailedChipView.alignLeft();
         }
         // align right
-        else if(coord[0] + ViewUtil.dpToPx(300) > windowWidth + ViewUtil.dpToPx(13)) {
-            layoutParams.leftMargin = windowWidth - ViewUtil.dpToPx(300);
+        else if(coord[0] + ViewUtil.dpToPx(276) > windowWidth + ViewUtil.dpToPx(13)) {
+            layoutParams.leftMargin = windowWidth - ViewUtil.dpToPx(276);
             layoutParams.topMargin = coord[1] - ViewUtil.dpToPx(13);
             detailedChipView.alignRight();
         }
@@ -400,5 +401,10 @@ public class ChipsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         }
 
         return false;
+    }
+
+    private void removeDetailedChipView(DetailedChipView detailedChipView) {
+        ViewGroup rootView = (ViewGroup) mRecycler.getRootView();
+        rootView.removeView(detailedChipView);
     }
 }
