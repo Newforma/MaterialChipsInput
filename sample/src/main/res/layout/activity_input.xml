@@ -18,7 +18,7 @@
         app:textSize="16sp"
         app:chip_labelColor="@color/chip_text_color"
         app:chip_textSize="16sp"
-        app:chip_hasAvatarIcon="false"
+        app:chip_hasAvatarIcon="true"
         app:chip_detailed_textColor="@color/colorChipViewBackground"
         app:chip_detailed_backgroundColor="@color/glass"
         app:chip_detailed_deleteIconColor="@color/colorChipViewBackground"

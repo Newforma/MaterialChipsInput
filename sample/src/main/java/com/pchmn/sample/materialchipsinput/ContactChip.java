@@ -44,4 +44,9 @@ public class ContactChip implements ChipInterface {
     public String getInfo() {
         return phoneNumber;
     }
+
+    @Override
+    public boolean canShowAvatar() {
+        return true;
+    }
 }

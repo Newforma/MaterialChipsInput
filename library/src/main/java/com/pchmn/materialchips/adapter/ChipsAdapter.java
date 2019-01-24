@@ -98,6 +98,9 @@ public class ChipsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
             itemViewHolder.chipView.inflate(getItem(position));
             // handle click
             handleClickOnEditText(itemViewHolder.chipView, position);
+
+            ChipInterface item = getItem(position);
+            itemViewHolder.chipView.setHasAvatarIcon(item.canShowAvatar());
         }
     }
 

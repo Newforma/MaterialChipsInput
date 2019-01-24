@@ -75,4 +75,9 @@ public class Chip implements ChipInterface {
     public String getInfo() {
         return info;
     }
+
+    @Override
+    public boolean canShowAvatar() {
+        return true;
+    }
 }
