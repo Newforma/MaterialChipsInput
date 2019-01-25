@@ -139,7 +139,7 @@ public class FilterableListView extends RelativeLayout {
 
         AlphaAnimation anim = new AlphaAnimation(0.0f, 1.0f);
         anim.setDuration(200);
-        startAnimation(anim);
+//        startAnimation(anim);
         setVisibility(VISIBLE);
     }
 
@@ -152,7 +152,7 @@ public class FilterableListView extends RelativeLayout {
 
         AlphaAnimation anim = new AlphaAnimation(1.0f, 0.0f);
         anim.setDuration(200);
-        startAnimation(anim);
+//        startAnimation(anim);
         setVisibility(GONE);
     }
 }
