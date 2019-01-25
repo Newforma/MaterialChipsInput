@@ -8,7 +8,9 @@ public interface ChipInterface {
 
     Object getId();
     Uri getAvatarUri();
+    Uri getDetailedUri();
     Drawable getAvatarDrawable();
+    Drawable getDetailedDrawable();
     String getLabel();
     String getInfo();
     boolean canShowAvatar();

@@ -10,7 +10,9 @@ public class Chip implements ChipInterface {
 
     private Object id;
     private Uri avatarUri;
+    private Uri detailedUri;
     private Drawable avatarDrawable;
+    private Drawable detailedDrawable;
     private String label;
     private String info;
 
@@ -62,8 +64,18 @@ public class Chip implements ChipInterface {
     }
 
     @Override
+    public Uri getDetailedUri() {
+        return detailedUri;
+    }
+
+    @Override
     public Drawable getAvatarDrawable() {
         return avatarDrawable;
+    }
+
+    @Override
+    public Drawable getDetailedDrawable() {
+        return detailedDrawable;
     }
 
     @Override
