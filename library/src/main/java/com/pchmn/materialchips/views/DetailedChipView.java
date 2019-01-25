@@ -95,7 +95,7 @@ public class DetailedChipView extends RelativeLayout {
     public void fadeIn() {
         AlphaAnimation anim = new AlphaAnimation(0.0f, 1.0f);
         anim.setDuration(200);
-//        startAnimation(anim);
+        startAnimation(anim);
         setVisibility(VISIBLE);
         // focus on the view
         requestFocus();
@@ -107,7 +107,7 @@ public class DetailedChipView extends RelativeLayout {
     public void fadeOut() {
         AlphaAnimation anim = new AlphaAnimation(1.0f, 0.0f);
         anim.setDuration(200);
-//        startAnimation(anim);
+        startAnimation(anim);
         setVisibility(GONE);
         // fix onclick issue
         clearFocus();
