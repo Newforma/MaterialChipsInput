@@ -15,6 +15,7 @@ import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -34,7 +35,7 @@ public class ChipView extends RelativeLayout {
     private Context mContext;
     // xml elements
     @BindView(R2.id.content) LinearLayout mContentLayout;
-    @BindView(R2.id.icon) CircleImageView mAvatarIconImageView;
+    @BindView(R2.id.icon) ImageView mAvatarIconImageView;
     @BindView(R2.id.label) TextView mLabelTextView;
     @BindView(R2.id.delete_button) ImageButton mDeleteButton;
     // attributes

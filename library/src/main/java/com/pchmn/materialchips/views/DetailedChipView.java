@@ -209,8 +209,8 @@ public class DetailedChipView extends RelativeLayout {
         }
 
         public Builder chip(ChipInterface chip) {
-            this.avatarUri = chip.getAvatarUri();
-            this.avatarDrawable = chip.getAvatarDrawable();
+            this.avatarUri = chip.getDetailedUri();
+            this.avatarDrawable = chip.getDetailedDrawable();
             this.name = chip.getLabel();
             this.info = chip.getInfo();
             return this;

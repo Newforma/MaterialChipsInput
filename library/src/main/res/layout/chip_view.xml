@@ -16,7 +16,7 @@
         android:background="@drawable/ripple_chip_view">
 
         <!-- avatar -->
-        <de.hdodenhof.circleimageview.CircleImageView
+        <ImageView
             android:id="@+id/icon"
             android:layout_width="29dp"
             android:layout_height="29dp"

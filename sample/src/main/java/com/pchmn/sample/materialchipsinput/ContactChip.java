@@ -31,7 +31,17 @@ public class ContactChip implements ChipInterface {
     }
 
     @Override
+    public Uri getDetailedUri() {
+        return null;
+    }
+
+    @Override
     public Drawable getAvatarDrawable() {
+        return null;
+    }
+
+    @Override
+    public Drawable getDetailedDrawable() {
         return null;
     }
 
