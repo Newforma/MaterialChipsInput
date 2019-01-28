@@ -298,7 +298,8 @@ public class ChipsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
                 mEditText.setText(null);
             }
             // refresh data
-            notifyItemInserted(mChipList.size());
+            notifyDataSetChanged();
+//            notifyItemInserted(mChipList.size());
         }
     }
 
@@ -306,7 +307,7 @@ public class ChipsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         int position = mChipList.indexOf(chip);
         mChipList.remove(position);
         // notify listener
-        notifyItemRangeChanged(position, getItemCount());
+//        notifyItemRangeChanged(position, getItemCount());
         // if 0 chip
         if (mChipList.size() == 0)
             mEditText.setHint(mHintLabel);
