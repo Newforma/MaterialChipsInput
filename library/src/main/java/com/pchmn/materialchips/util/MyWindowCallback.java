@@ -26,12 +26,12 @@ public class MyWindowCallback implements Window.Callback {
 
     private Window.Callback mLocalCallback;
     private Activity mActivity;
-    private boolean mEnabled;
+    private View mAreaIgnored;
 
-    public MyWindowCallback(Window.Callback localCallback, Activity activity, boolean enabled) {
+    public MyWindowCallback(Window.Callback localCallback, Activity activity, View areaIgnored) {
         mLocalCallback = localCallback;
         mActivity = activity;
-        mEnabled = enabled;
+        mAreaIgnored = areaIgnored;
     }
 
     @Override
@@ -60,9 +60,17 @@ public class MyWindowCallback implements Window.Callback {
             if (v instanceof ChipsInputEditText) {
                 Rect outRect = new Rect();
                 v.getGlobalVisibleRect(outRect);
+
+                Rect areaIgnoredRect = new Rect();
+                if (mAreaIgnored != null) {
+                    mAreaIgnored.getGlobalVisibleRect(areaIgnoredRect);
+                } else {
+                    v.getGlobalVisibleRect(areaIgnoredRect);
+                }
+
                 if (!outRect.contains((int) motionEvent.getRawX(), (int) motionEvent.getRawY())
-                        && !((ChipsInputEditText) v).isFilterableListVisible()
-                        && mEnabled) {
+                        && !areaIgnoredRect.contains((int) motionEvent.getRawX(), (int) motionEvent.getRawY())
+                        && !((ChipsInputEditText) v).isFilterableListVisible()) {
                     InputMethodManager imm = (InputMethodManager) mActivity.getSystemService(Context.INPUT_METHOD_SERVICE);
                     imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
                 }
