@@ -147,16 +147,16 @@ public class ChipsInput extends ScrollViewMaxHeight {
 
         // set window callback
         // will hide DetailedOpenView and hide keyboard on touch outside
-        setWindowCallback();
+        setWindowCallback(true);
     }
 
-    public void setWindowCallback() {
+    public void setWindowCallback(boolean enabled) {
         Activity activity = ActivityUtil.scanForActivity(mContext);
         if(activity == null)
             throw new ClassCastException("android.view.Context cannot be cast to android.app.Activity");
 
         android.view.Window.Callback mCallBack = (activity).getWindow().getCallback();
-        activity.getWindow().setCallback(new MyWindowCallback(mCallBack, activity));
+        activity.getWindow().setCallback(new MyWindowCallback(mCallBack, activity, enabled));
     }
 
     public void addChip(ChipInterface chip) {

@@ -26,10 +26,12 @@ public class MyWindowCallback implements Window.Callback {
 
     private Window.Callback mLocalCallback;
     private Activity mActivity;
+    private boolean mEnabled;
 
-    public MyWindowCallback(Window.Callback localCallback, Activity activity) {
+    public MyWindowCallback(Window.Callback localCallback, Activity activity, boolean enabled) {
         mLocalCallback = localCallback;
         mActivity = activity;
+        mEnabled = enabled;
     }
 
     @Override
@@ -59,7 +61,8 @@ public class MyWindowCallback implements Window.Callback {
                 Rect outRect = new Rect();
                 v.getGlobalVisibleRect(outRect);
                 if (!outRect.contains((int) motionEvent.getRawX(), (int) motionEvent.getRawY())
-                        && !((ChipsInputEditText) v).isFilterableListVisible()) {
+                        && !((ChipsInputEditText) v).isFilterableListVisible()
+                        && mEnabled) {
                     InputMethodManager imm = (InputMethodManager) mActivity.getSystemService(Context.INPUT_METHOD_SERVICE);
                     imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
                 }
