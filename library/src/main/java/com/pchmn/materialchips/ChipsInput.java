@@ -8,6 +8,7 @@ import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.util.TypedValue;
@@ -138,9 +139,10 @@ public class ChipsInput extends ScrollViewMaxHeight {
 
         // adapter
         mChipsAdapter = new ChipsAdapter(mContext, this, mRecyclerView);
-        ChipsLayoutManager chipsLayoutManager = ChipsLayoutManager.newBuilder(mContext)
-                .setOrientation(ChipsLayoutManager.HORIZONTAL)
-                .build();
+//        ChipsLayoutManager chipsLayoutManager = ChipsLayoutManager.newBuilder(mContext)
+//                .setOrientation(ChipsLayoutManager.HORIZONTAL)
+//                .build();
+        LinearLayoutManager chipsLayoutManager = new LinearLayoutManager(getContext());
         mRecyclerView.setLayoutManager(chipsLayoutManager);
         mRecyclerView.setNestedScrollingEnabled(false);
         mRecyclerView.setAdapter(mChipsAdapter);
