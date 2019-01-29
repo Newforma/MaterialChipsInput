@@ -1,5 +1,9 @@
 # CHANGELOG
 
+# 1.1.0
+
+Added chip background drawable support. Added additional styleable attribute support for chips and chip input. Modified window callback for keyboard dismissal and focus change improvements.
+
 # 1.0.8
 
 Fixed bug related with [issue #16](https://github.com/pchmn/MaterialChipsInput/issues/16)
